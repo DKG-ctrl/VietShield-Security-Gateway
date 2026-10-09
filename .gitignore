@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+models/*.joblib
+models/model_b_transformer/
+models/model_b_checkpoints/
+data/rmit2025/
+outputs/*.csv
+outputs/*.json
+!outputs/.gitkeep

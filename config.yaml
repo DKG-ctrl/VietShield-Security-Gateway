@@ -1,0 +1,28 @@
+{
+  "seed": 42,
+  "validation_size": 0.2,
+  "risk": {
+    "ml_weight": 0.62,
+    "injection_weight": 0.30,
+    "unicode_weight": 0.08,
+    "medium_threshold": 0.45,
+    "high_threshold": 0.72
+  },
+  "evaluation": {
+    "heuristic_positive_threshold": 0.40,
+    "binary_policy": "warn_sanitize_or_block_is_positive"
+  },
+  "model_a": {
+    "type": "word_char_tfidf_logistic_regression",
+    "word_ngram_range": [1, 2],
+    "char_ngram_range": [3, 5]
+  },
+  "model_b": {
+    "pretrained_model": "distilbert/distilbert-base-multilingual-cased",
+    "max_length": 256,
+    "epochs": 3,
+    "learning_rate": 0.00002,
+    "batch_size": 4,
+    "gradient_accumulation_steps": 2
+  }
+}
