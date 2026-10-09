@@ -2,7 +2,10 @@ from __future__ import annotations
 
 import json
 
-from common import PROJECT_ROOT
+try:
+    from .common import PROJECT_ROOT
+except ImportError:  # supports direct script-style execution contexts
+    from common import PROJECT_ROOT
 from src.gateway import SecurityGateway
 from src.risk_engine import RiskConfig
 

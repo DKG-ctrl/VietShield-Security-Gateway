@@ -1,0 +1,73 @@
+{
+  "status": "frozen",
+  "frozen_at_utc": "2026-10-09T12:16:24.289196+00:00",
+  "primary": "model_a",
+  "selection_rationale": "highest internal-validation security utility = recall + 0.5*F1 - 0.35*FPR; external Test60 not consulted",
+  "model": {
+    "name": "word_char_tfidf_logistic_regression",
+    "artifact": "models\\model_a.joblib",
+    "artifact_type": "baseline_joblib",
+    "threshold": 0.48,
+    "artifact_hashes": {
+      "model_a.joblib": "bd0819d02d6838dea92ea8820d31f0f9c4bff5a5a4cbc9772c26c2ce37dbae46"
+    }
+  },
+  "validation": {
+    "model_a": {
+      "status": "trained",
+      "model": "word_char_tfidf_logistic_regression",
+      "train_rows": 3200,
+      "validation_rows": 800,
+      "threshold": 0.48,
+      "threshold_selection": "max_f1_then_recall_then_lower_fpr_on_internal_validation",
+      "metrics": {
+        "accuracy": 0.89125,
+        "precision_jailbreak": 0.8319088319088319,
+        "recall_jailbreak": 0.9125,
+        "f1_jailbreak": 0.8703427719821163,
+        "false_positive_rate": 0.12291666666666666,
+        "false_negative_rate": 0.0875,
+        "confusion_matrix": [
+          [
+            421,
+            59
+          ],
+          [
+            28,
+            292
+          ]
+        ],
+        "support": {
+          "benign": 480,
+          "jailbreak": 320
+        },
+        "roc_auc": 0.95830078125
+      },
+      "training_seconds": 2.7525595000006433,
+      "latency": {
+        "documents": 100,
+        "average_ms_per_document": 1.7048430000431836,
+        "p50_ms": 1.6374999995605322,
+        "p95_ms": 2.5964799997382206
+      },
+      "artifact": "models\\model_a.joblib"
+    },
+    "model_b": {
+      "status": "not_attempted"
+    }
+  },
+  "risk": {
+    "ml_weight": 0.62,
+    "injection_weight": 0.3,
+    "unicode_weight": 0.08,
+    "medium_threshold": 0.45,
+    "high_threshold": 0.72
+  },
+  "evaluation": {
+    "heuristic_positive_threshold": 0.4,
+    "binary_policy": "warn_sanitize_or_block_is_positive"
+  },
+  "heuristic_rules_sha256": "95f26ab7dd491f09e57729f901d7294866eef4b84a50c5367a8fa627a9fecab9",
+  "normalization_sha256": "1550d7a77083064388a68ee5423a8b91d6b9bf3b88423d8d076df597086f489c",
+  "config_sha256": "7afb4d712a81a3a4718b3967e4c0487355eb054af5569edcffd3d808e7f376cc"
+}
